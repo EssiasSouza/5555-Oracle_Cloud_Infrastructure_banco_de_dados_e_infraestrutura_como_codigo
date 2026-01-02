@@ -1,0 +1,124 @@
+/*
+Theme Name: Portal Cloud
+Author: Essias Souza
+Description: Tema simples de notícias
+Version: 1.0
+*/
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+header {
+  background-color: #2c3e50;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.menu_a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+}
+
+nav {
+  background-color: #34495e;
+  padding: 10px;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+nav a:visited {
+  color: white;
+  text-decoration: none;
+  margin: 0 15px;
+  font-weight: bold;
+}
+
+a {
+  color: #2c3e50;
+}
+
+a:hover {
+  color: #1a252f;
+}
+
+a:visited {
+  color: inherit;
+}
+
+main {
+  padding: 40px;
+  text-align: center;
+}
+
+.tech-stack {
+  width: 1px;
+  height: 1px;
+  display: inline-block;
+  background-color: rgb(179, 255, 0);
+  margin-top: 20px;
+}
+
+footer {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  width: 100%;
+}
+
+/* Preloader */
+#preloader {
+  position: fixed;
+  inset: 0;
+  background: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  transition: opacity 0.4s ease;
+}
+
+#preloader.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loader {
+  font-size: 22px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Sticky footer layout */
+.site {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* Footer mínimo */
+footer {
+  min-height: 60px;
+}
+
