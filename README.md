@@ -59,8 +59,10 @@ Para aproveitar melhor o curso, é recomendável que você tenha:
 ---
 
 ## Comandos e códigos necessários
+```
 sudo rm /etc/apache2/sites-available/000-default.conf
 sudo nano /etc/apache2/sites-available/000-default.conf
+```
 ```
 <VirtualHost *:80>
     ServerName seu_dominio.com.br
@@ -78,8 +80,10 @@ sudo nano /etc/apache2/sites-available/000-default.conf
 </VirtualHost>
 
 ```
+```
 sudo rm /var/www/html/.htaccess
 sudo nano /var/www/html/.htaccess
+```
 ```
 # REST API fix
 RewriteEngine On
