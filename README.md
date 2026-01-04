@@ -50,18 +50,41 @@ Para aproveitar melhor o curso, é recomendável que você tenha:
 ---
 
 ## Comandos e códigos necessários
-
+sudo rm /etc/apache2/sites-available/000-default.conf
 sudo nano /etc/apache2/sites-available/000-default.conf
 ```
 <VirtualHost *:80>
-    ServerName your_site_domain_or_ip
+    ServerName seu_dominio.com.br
+    ServerAlias www.seu_dominio.com.brr
+
     DocumentRoot /var/www/html
 
     <Directory /var/www/html>
         AllowOverride All
         Require all granted
     </Directory>
+
+    ErrorLog ${APACHE_LOG_DIR}/seu_dominio.com.br_error.log
+    CustomLog ${APACHE_LOG_DIR}/seu_dominio.com.br.log combined
 </VirtualHost>
+
+```
+sudo rm /var/www/html/.htaccess
+sudo nano /var/www/html/.htaccess
+```
+# REST API fix
+RewriteEngine On
+
+RewriteRule ^wp-json/?$ index.php?rest_route=/ [QSA,L]
+RewriteRule ^wp-json/(.*)$ index.php?rest_route=/$1 [QSA,L]
+
+# WordPress padrão
+RewriteRule ^index\.php$ - [L]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+
 ```
 
 ## 📝 Observações importantes
