@@ -75,8 +75,8 @@ sudo nano /etc/apache2/sites-available/000-default.conf
         Require all granted
     </Directory>
 
-    ErrorLog ${APACHE_LOG_DIR}/seu_dominio.com.br_error.log
-    CustomLog ${APACHE_LOG_DIR}/seu_dominio.com.br.log combined
+    ErrorLog /var/www/html/seu_dominio.com.br_error.log
+    CustomLog /var/www/html/seu_dominio.com.br.log combined
 </VirtualHost>
 
 ```
