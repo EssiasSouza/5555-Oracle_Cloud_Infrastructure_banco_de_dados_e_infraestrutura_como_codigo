@@ -86,6 +86,28 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
 
 ```
+## Comandos cURL
+- Listar posts
+```
+curl -i http://seusite.com.br/wp-json/wp/v2/posts/ \
+  -u "USUÁRIO_WP:SENHA_DA_APLICACAO"
+```
+- Criar posts
+```
+curl -X POST http://seusite.com.br/wp-json/wp/v2/posts \
+  -u "USUÁRIO_WP:SENHA_DA_APLICACAO" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "title": "First post via API",
+    "content": "Este conteúdo foi publicado usando a API do WordPress sem usar o WP-ADMIN.",
+    "status": "publish"
+  }'
+```
+- Deletar posts
+```
+curl -X DELETE http://seusite.com.br/wp-json/wp/v2/posts/NUMBER_ID_OF_YOUR_POST?force=true \
+  -u "USUÁRIO_WP:SENHA_DA_APLICACAO" \
+```
 
 ## 📝 Observações importantes
 
