@@ -78,7 +78,6 @@ sudo nano /etc/apache2/sites-available/000-default.conf
     ErrorLog /var/www/html/seu_dominio.com.br_error.log
     CustomLog /var/www/html/seu_dominio.com.br.log combined
 </VirtualHost>
-
 ```
 ```
 sudo rm /var/www/html/.htaccess
@@ -98,6 +97,21 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
 
+# BEGIN WordPress
+# The directives (lines) between "BEGIN WordPress" and "END WordPress" are
+# dynamically generated, and should only be modified via WordPress filters.
+# Any changes to the directives between these markers will be overwritten.
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+
+# END WordPress
 ```
 ## Comandos cURL
 - Listar posts
