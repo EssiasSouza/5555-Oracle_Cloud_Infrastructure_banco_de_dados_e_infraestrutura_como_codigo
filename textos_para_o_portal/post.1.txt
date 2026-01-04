@@ -1,0 +1,46 @@
+TÍTULO:
+Escalabilidade na OCI: como a nuvem cresce sem você perceber
+CONTEÚDO:
+Uma das coisas mais curiosas da nuvem e que quase ninguém explica direito é a escalabilidade.
+Na prática, ela é o motivo pelo qual sistemas modernos conseguem atender 10, 100 ou 10 mil usuários sem parar tudo para “trocar o servidor”.
+
+Mas o que isso significa na Oracle Cloud Infrastructure (OCI)?
+
+Quando você cria um servidor tradicional (on-premises), ele nasce com um limite físico:
+CPU, memória, disco. Se o sistema cresce, a dor de cabeça começa: compra de hardware, janelas de manutenção, risco de indisponibilidade.
+
+Na OCI, isso muda completamente.
+
+🔹 Escalabilidade vertical
+
+Na OCI, você pode aumentar CPU e memória de uma máquina virtual em minutos.
+Em muitos cenários, isso é feito sem reinstalar nada e com impacto mínimo no sistema.
+É como trocar o motor de um carro sem precisar comprar outro.
+
+🔹 Escalabilidade horizontal
+
+Aqui está a mágica da nuvem.
+Em vez de um servidor maior, você pode ter vários servidores menores trabalhando juntos.
+Quando a demanda cresce, a OCI cria novas instâncias automaticamente.
+Quando a demanda cai, ela reduz e você para de pagar pelo excesso.
+
+🔹 Auto Scaling: crescimento automático
+A OCI consegue monitorar métricas como:
+
+- uso de CPU
+- memória
+- tráfego de rede
+
+Quando um limite é atingido, novos recursos são provisionados sem intervenção humana.
+Para o usuário final, nada muda. O sistema simplesmente continua funcionando.
+
+O mais curioso?
+Na maioria das vezes, o usuário nem percebe que a infraestrutura cresceu.
+O site continua rápido, o sistema continua respondendo e o time de TI não precisa agir no desespero.
+
+Em resumo:
+Escalabilidade na OCI não é só “ter mais servidor”.
+É crescer no ritmo do negócio, pagar apenas pelo que usa e eliminar boa parte das emergências operacionais.
+
+E quando você entende isso, percebe que nuvem não é custo.
+É estratégia.

@@ -1,0 +1,52 @@
+TÍTULO:
+O que são regiões e availability domains e por que isso salva sistemas de quedas
+CONTEÚDO:
+Quando um sistema “cai”, muita gente pensa logo em código, banco de dados ou aplicação.
+Mas, na prática, muitas falhas começam na infraestrutura física: energia, rede, hardware ou até manutenção programada.
+
+É aqui que entram dois conceitos fundamentais da Oracle Cloud Infrastructure (OCI):
+Regiões e Availability Domains (ADs).
+
+🔹 Região: o “país” da sua nuvem
+
+Uma região é uma localização geográfica completa, como São Paulo, Ashburn ou Frankfurt.
+Cada região da OCI é:
+
+- isolada das outras
+- conectada por redes de alta performance
+- capaz de operar de forma independente
+
+Se uma região inteira tiver um problema (algo raro, mas possível), as outras continuam funcionando.
+
+🔹 Availability Domains: datacenters que não dependem uns dos outros
+
+Dentro de uma mesma região, a OCI possui múltiplos Availability Domains.
+Cada AD é, na prática:
+
+- um datacenter físico separado
+- com energia, refrigeração e rede independentes
+- conectado aos outros ADs por links rápidos e privados
+
+Isso significa que uma falha em um AD não derruba os outros.
+
+🔹 Como isso evita quedas na prática?
+
+Imagine um sistema distribuído em dois ou três ADs:
+
+- a aplicação roda em mais de um lugar
+- o banco replica dados entre ADs
+- o balanceador direciona o tráfego automaticamente
+
+Se um AD falhar, o usuário nem percebe. O sistema continua operando porque outro AD assume.
+
+🔹 Curiosidade importante
+
+Muita gente acha que “alta disponibilidade” é algo complexo e caro. Na OCI, ela nasce do desenho da infraestrutura, não de gambiarras.
+
+Você não está apenas criando servidores. Está escolhendo onde eles existem fisicamente no planeta.
+
+Em resumo:
+- Regiões protegem contra falhas geográficas.
+- Availability Domains protegem contra falhas de datacenter.
+
+E entender isso muda completamente a forma de pensar arquitetura na nuvem.

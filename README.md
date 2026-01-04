@@ -49,6 +49,21 @@ Para aproveitar melhor o curso, é recomendável que você tenha:
 
 ---
 
+## Comandos e códigos necessários
+
+sudo nano /etc/apache2/sites-available/000-default.conf
+```
+<VirtualHost *:80>
+    ServerName your_site_domain_or_ip
+    DocumentRoot /var/www/html
+
+    <Directory /var/www/html>
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+```
+
 ## 📝 Observações importantes
 
 - Este repositório é **educacional** e acompanha exclusivamente o curso.
@@ -68,4 +83,3 @@ A **Alura** é uma plataforma de ensino online focada em tecnologia, com cursos 
 ## 📄 Licença
 
 Este projeto é distribuído apenas para fins educacionais, conforme os termos da plataforma Alura.
-```
