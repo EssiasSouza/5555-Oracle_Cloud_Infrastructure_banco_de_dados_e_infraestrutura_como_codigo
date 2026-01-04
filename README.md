@@ -11,7 +11,6 @@ O objetivo do curso é apresentar, de forma prática, como provisionar e gerenci
 A organização dos arquivos acompanha a evolução das aulas:
 
 ```
-
 ├── portal-cloud-wp-theme/
 │   └── assets/
 │       └── js/
@@ -22,10 +21,20 @@ A organização dos arquivos acompanha a evolução das aulas:
 │   └── index.php
 │   └── single.php
 │   └── style.css
+├── textos_para_o_portal/
+│   └── 0-guia.md # Guia de utilização da aplicação que consome a API do WordPress
+│   └── autopost.py
+│   └── config.json
+│   └── post_automatico.txt
+│   └── post.1.txt
+│   └── post.2.txt
+│   └── post.3.txt
 ├── wp-plugins/
 │   └── enable-app-passwords-dev.php
-└── README.md
-
+├── .gitignore
+├── portal-cloud-wp-theme.zip
+├── README.md
+└── requirements.txt
 ```
 ## 🧰 Tecnologias e serviços utilizados
 
