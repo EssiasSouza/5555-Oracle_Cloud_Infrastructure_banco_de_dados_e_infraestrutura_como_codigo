@@ -81,6 +81,9 @@ sudo nano /etc/apache2/sites-available/000-default.conf
 ```
 ### Forçar o WordPress responder no endereço desejado
 ```
+sudo nano /var/www/html/wp-config.php
+```
+```
 define('WP_HOME', 'https://site.com');
 define('WP_SITEURL', 'https://site.com');
 
