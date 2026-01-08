@@ -79,6 +79,15 @@ sudo nano /etc/apache2/sites-available/000-default.conf
     CustomLog /var/www/html/seu_dominio.com.br.log combined
 </VirtualHost>
 ```
+### Forçar o WordPress responder no endereço desejado
+```
+define('WP_HOME', 'https://site.com');
+define('WP_SITEURL', 'https://site.com');
+
+/* That's all, stop editing! Happy publishing. */
+```
+### Forçar o Rewrite no .htaccess
+
 ```
 sudo rm /var/www/html/.htaccess
 sudo nano /var/www/html/.htaccess
