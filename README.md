@@ -95,15 +95,16 @@ sudo nano /var/www/html/wp-config.php
 ```
 ```
 define('FORCE_SSL_ADMIN', true);
+define('FORCE_SSL_LOGIN', true);
 
+// Reconhecer HTTPS atrás do Load Balancer (OCI)
 if (
     isset($_SERVER['HTTP_X_FORWARDED_PROTO']) &&
-    $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https'
+    $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https'
 ) {
     $_SERVER['HTTPS'] = 'on';
 }
-
-/* That's all, stop editing! Happy publishing. */
+```
 
 ### Forçar o Rewrite no .htaccess
 
