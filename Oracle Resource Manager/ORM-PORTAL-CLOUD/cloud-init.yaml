@@ -1,0 +1,63 @@
+#cloud-config
+
+package_update: true
+package_upgrade: false
+
+packages:
+  - apache2
+  - mysql-server
+  - php
+  - libapache2-mod-php
+  - php-mysql
+  - ufw
+  - unzip
+
+write_files:
+  - path: /etc/apache2/sites-available/000-default.conf
+    owner: root:root
+    permissions: '0644'
+    content: |
+      <VirtualHost *:80>
+          ServerName portalcloud.com.br
+          ServerAlias www.portalcloud.com.br
+
+          DocumentRoot /var/www/html
+
+          <Directory /var/www/html>
+              AllowOverride All
+              Require all granted
+          </Directory>
+
+          ErrorLog $${APACHE_LOG_DIR}/portalcloud.com.br_error.log
+          CustomLog $${APACHE_LOG_DIR}/portalcloud.com.br.log combined
+      </VirtualHost>
+
+runcmd:
+  # Firewall
+  - [ufw, allow, "22"]
+  - [ufw, allow, "80"]
+  - [ufw, allow, "443"]
+  - [ufw, allow, "3306"]
+  - [ufw, --force, enable]
+  - [ufw, reload]
+
+  # Apache
+  - [a2enmod, rewrite]
+  - [systemctl, enable, apache2]
+  - [systemctl, start, apache2]
+
+  # MySQL
+  - [systemctl, enable, mysql]
+  - [systemctl, start, mysql]
+
+  # ARQUIVOS
+  - [mkdir, -p, /home/ubuntu/arquivos]
+  - [wget, -P, /home/ubuntu/arquivos, https://objeto_do_bucket.zip]
+  - [rm, -rf, /var/www/html]
+  - [unzip, /home/ubuntu/arquivos/site.zip, -d, /var/www/]
+  - [chown, -R, www-data:www-data, /var/www/html]
+  - bash -c "find /var/www/html -type d -exec chmod 755 {} \;"
+  - bash -c "find /var/www/html -type f -exec chmod 644 {} \;"
+  - [systemctl, restart, apache2]
+
+final_message: "Servidor LAMP provisionado com sucesso via cloud-init"

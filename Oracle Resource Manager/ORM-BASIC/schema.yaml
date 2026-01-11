@@ -1,0 +1,98 @@
+title: "Basic Web application using"
+description: "Basic Web Application using Oracle Cloud Infrastructure"
+schemaVersion: 1.1.0
+version: "20190404"
+locale: "en"
+
+variableGroups:
+- title: Hidden
+  visible: false
+  variables:
+  - compartment_ocid
+  - tenancy_ocid
+  - region
+  - image_operating_system
+  - image_operating_system_version
+
+- title: "Select a Flex Load Balancer with Minimum and Maximum Bandwidth"
+  variables:
+  - load_balancer_min_band
+  - load_balancer_max_band
+
+- title: "Select Compute Shape"
+  variables:
+  - instance_shape
+
+- title: "Select Availability Domain"
+  variables:
+  - AD
+
+- title: "SSH Key Configuration"
+  variables:
+  - ssh_public_key
+
+- title: "Virtual Cloud Network Configuration"
+  variables:
+  - vcn_dns_label
+  - vcn_cidr
+  - dns_label
+
+variables:
+  load_balancer_min_band:
+    type: enum
+    enum:
+    - "10"
+    - "100"
+    - "400"
+    - "8000"
+    title: "Select the minimum bandwidth for the load balancer in Mbps"
+    description: "A load balancer provides automated traffic distribution from one entry point to multiple servers in a backend set. The load balancer ensures that your services remain available by directing traffic only to healthy servers in the backend set."
+
+  load_balancer_max_band:
+    type: enum
+    enum:
+    - "10"
+    - "100"
+    - "400"
+    - "8000"
+    title: "Select the maximum bandwidth for the load balancer in Mbps"
+    description: "A load balancer provides automated traffic distribution from one entry point to multiple servers in a backend set. The load balancer ensures that your services remain available by directing traffic only to healthy servers in the backend set."
+
+  vcn_dns_label:
+    type: string
+    title: "Enter your VCN name"
+
+  dns_label:
+    type: string
+    title: "Enter your subnet name"
+
+  vcn_cidr:
+    type: string
+    title: "Enter your VCN CIDR Block. Examle: 10.0.0/16"
+
+  instance_shape:
+    type: enum
+    enum:
+      - "VM.Standard.E2.1.Micro"
+      - "VM.Standard2.1"
+      - "VM.Standard2.2"
+      - "VM.Standard.E2.1"
+    title: "Select a shape for the compute instances"
+    description: "A shape is a template that determines the number of CPUs, amount of memory, and other resources allocated to a newly created instance."
+
+  AD:
+    type: enum
+    enum:
+      - "1"
+      - "2"
+      - "3"
+    title: "Select the Availability Domain"
+    description: "The Availability Domain is where your instance will be placed"
+  
+  ssh_public_key:
+    type: oci:core:ssh:publickey
+    title: "SSH Public Key"
+    description: "The public SSH key for the key-pair that you want to use, if you wish to login to the instances over SSH."
+    additionalProps:
+      allowMultiple: true
+    pattern: "((^(ssh-rsa AAAAB3NzaC1yc2|ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNT|ecdsa-sha2-nistp384 AAAAE2VjZHNhLXNoYTItbmlzdHAzODQAAAAIbmlzdHAzOD|ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1Mj|ssh-ed25519 AAAAC3NzaC1lZDI1NTE5|ssh-dss AAAAB3NzaC1kc3)[0-9A-Za-z+\/]+[=]{0,3})( [^,]*)?)(,((ssh-rsa AAAAB3NzaC1yc2|ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNT|ecdsa-sha2-nistp384 AAAAE2VjZHNhLXNoYTItbmlzdHAzODQAAAAIbmlzdHAzOD|ecdsa-sha2-nistp521 AAAAE2VjZHNhLXNoYTItbmlzdHA1MjEAAAAIbmlzdHA1Mj|ssh-ed25519 AAAAC3NzaC1lZDI1NTE5|ssh-dss AAAAB3NzaC1kc3)[0-9A-Za-z+\/]+[=]{0,3})( [^,]*)?)*$"
